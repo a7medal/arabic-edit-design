@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StudentInfo } from '@/types/student';
 import StudentCard from '@/components/StudentCard';

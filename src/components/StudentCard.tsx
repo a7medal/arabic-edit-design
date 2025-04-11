@@ -114,7 +114,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         
         {/* Student Information Header */}
         <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
