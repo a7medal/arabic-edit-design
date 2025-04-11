@@ -1,0 +1,31 @@
+
+@media print {
+  body {
+    background-color: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  .student-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .editable:hover {
+    background-color: transparent !important;
+    cursor: default !important;
+  }
+  
+  svg {
+    display: none !important;
+  }
+  
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+}

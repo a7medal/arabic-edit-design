@@ -1,11 +1,156 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import { StudentInfo } from '@/types/student';
+import StudentCard from '@/components/StudentCard';
+import { toast } from '@/hooks/use-toast';
+
+// بيانات طالب عينة تطابق الصورة
+const initialStudentData: StudentInfo = {
+  id: "1",
+  name: "Elhaj Ebou Imaaly Ammy - الحاج أبو المعالي عمي",
+  arabicName: "الحاج أبو المعالي عمي",
+  className: "6MA",
+  registrationNumber: 4,
+  rimNumber: "RIM25454658",
+  schoolYear: "2025 - 2024",
+  semester: "Premier Trimestre",
+  subjects: [
+    {
+      name: "Francais",
+      nameAr: "اللغة العربية",
+      coefficient: 2,
+      average: 15,
+      examScore: 15,
+      homeworkScore: 14
+    },
+    {
+      name: "Francais",
+      nameAr: "Francais",
+      coefficient: 2,
+      average: 14,
+      examScore: 14,
+      homeworkScore: 14
+    },
+    {
+      name: "Anglais",
+      nameAr: "الإنجليزية",
+      coefficient: 2,
+      average: 15,
+      examScore: 15,
+      homeworkScore: 14
+    },
+    {
+      name: "Science Naturelles",
+      nameAr: "Science Naturelles",
+      coefficient: 3,
+      average: 10.5,
+      examScore: 10.5,
+    },
+    {
+      name: "Education Islamique",
+      nameAr: "التربية الإسلامية",
+      coefficient: 2,
+      average: 16,
+      examScore: 16,
+      homeworkScore: 15
+    },
+    {
+      name: "Physique et Chimie",
+      nameAr: "Physique et Chimie",
+      coefficient: 6,
+      average: 12,
+      examScore: 12,
+      homeworkScore: 8
+    },
+    {
+      name: "Mathematique",
+      nameAr: "Mathematique",
+      coefficient: 7,
+      average: 10.5,
+      examScore: 10.5,
+      homeworkScore: 10
+    },
+    {
+      name: "Histoire et Geographie",
+      nameAr: "التاريخ والجغرافيا",
+      coefficient: 2,
+      average: 15,
+      examScore: 15,
+      homeworkScore: 15
+    },
+    {
+      name: "Philosophie",
+      nameAr: "الفلسفة",
+      coefficient: 2,
+      average: 10,
+      examScore: 10,
+      homeworkScore: 10
+    },
+    {
+      name: "Education Physique",
+      nameAr: "التربية البدنية",
+      coefficient: 2,
+      average: 16,
+      examScore: 16,
+    }
+  ],
+  overallAverage: 12.4,
+  mention: "Plaque d'honneur - لوحة شرف"
+};
 
 const Index = () => {
+  const [student, setStudent] = useState<StudentInfo>(initialStudentData);
+
+  const handleUpdateStudent = (updatedStudent: StudentInfo) => {
+    setStudent(updatedStudent);
+    console.log('Updated student data:', updatedStudent);
+  };
+
+  const handlePrint = () => {
+    window.print();
+    toast({
+      title: "تمت الطباعة",
+      description: "تم إرسال المستند إلى الطابعة",
+    });
+  };
+
+  const handleReset = () => {
+    if (confirm('هل أنت متأكد من إعادة ضبط جميع البيانات؟')) {
+      setStudent(initialStudentData);
+      toast({
+        title: "تمت إعادة الضبط",
+        description: "تم استعادة البيانات الأصلية",
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gray-100 py-8 font-tajawal">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-between mb-4 print:hidden">
+            <button
+              onClick={handleReset}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+            >
+              إعادة ضبط البيانات
+            </button>
+            <button
+              onClick={handlePrint}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            >
+              طباعة البطاقة
+            </button>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <StudentCard student={student} onUpdate={handleUpdateStudent} />
+          </div>
+          
+          <div className="mt-6 text-center text-sm text-gray-600 print:hidden">
+            <p>انقر على أي قيمة لتعديلها. سيتم تحديث المعدل العام تلقائيًا عند تغيير الدرجات.</p>
+          </div>
+        </div>
       </div>
     </div>
   );
