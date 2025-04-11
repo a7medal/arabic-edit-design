@@ -21,9 +21,12 @@
     width: 21cm !important;
     height: 29.7cm !important;
     margin: 0 auto !important;
-    padding: 1cm !important;
+    padding: 0 !important;
     overflow: hidden !important;
-    position: relative !important;
+  }
+  
+  .student-info {
+    border: 1px solid #e5e7eb !important;
   }
   
   .editable:hover {
@@ -33,5 +36,10 @@
   
   svg {
     display: none !important;
+  }
+  
+  .student-table {
+    width: 100% !important;
+    margin: 0 15px !important;
   }
 }

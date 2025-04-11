@@ -101,92 +101,92 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
     });
   };
 
-  // Calculate and update the total for each subject
+  // Calculate the total for each subject
   const calculateTotal = (subject: Subject): number => {
     return subject.coefficient * subject.average;
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-0">
+    <div className="max-w-6xl mx-auto">
       <div className="student-card bg-white">
         {/* School Header with Logo */}
-        <div className="school-header bg-[url('/lovable-uploads/1624e385-2d3d-4b97-b84a-1ec333778562.png')]"></div>
+        <div className="school-header bg-[url('/lovable-uploads/abc52853-1c3a-4478-aaf2-a2a70cecd693.png')]"></div>
         
-        {/* Student Information Header */}
-        <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
-          <div className="flex items-center justify-center">
-            <div className="flex-shrink-0">
-              <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
+        {/* Student Information */}
+        <div className="student-info">
+          <div className="grid grid-cols-3 gap-2">
+            <div className="flex items-center justify-center">
+              <div className="student-photo">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 text-gray-500">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
             </div>
-          </div>
-          
-          <div className="col-span-2 grid grid-cols-2 gap-4">
-            <div className="text-right">
-              <div className="mb-2">Nom:</div>
-              <div className="mb-2">Classe:</div>
-              <div className="mb-2">Matricule:</div>
-              <div className="mb-2">RIM:</div>
-              <div className="mb-2">Annee Scolaire:</div>
-            </div>
             
-            <div>
-              <div className="mb-2 font-bold">
-                <EditableField 
-                  value={student.name} 
-                  onSave={(value) => updateStudentInfo('name', value)} 
-                />
+            <div className="grid grid-cols-2 col-span-2 gap-2">
+              <div className="text-right font-semibold">
+                <div className="mb-2">Nom:</div>
+                <div className="mb-2">Classe:</div>
+                <div className="mb-2">Matricule:</div>
+                <div className="mb-2">RIM:</div>
+                <div className="mb-2">Annee Scolaire:</div>
               </div>
-              <div className="mb-2 font-bold">
-                <EditableField 
-                  value={student.className} 
-                  onSave={(value) => updateStudentInfo('className', value)} 
-                />
+              
+              <div>
+                <div className="mb-2 font-bold">
+                  <EditableField 
+                    value={student.name} 
+                    onSave={(value) => updateStudentInfo('name', value)} 
+                  />
+                </div>
+                <div className="mb-2 font-bold">
+                  <EditableField 
+                    value={student.className} 
+                    onSave={(value) => updateStudentInfo('className', value)} 
+                  />
+                </div>
+                <div className="mb-2 font-bold">
+                  <EditableField 
+                    value={student.registrationNumber} 
+                    onSave={(value) => updateStudentInfo('registrationNumber', value)} 
+                    isNumeric
+                  />
+                </div>
+                <div className="mb-2 font-bold">
+                  <EditableField 
+                    value={student.rimNumber} 
+                    onSave={(value) => updateStudentInfo('rimNumber', value)} 
+                  />
+                </div>
+                <div className="mb-2 font-bold">
+                  <EditableField 
+                    value={student.schoolYear} 
+                    onSave={(value) => updateStudentInfo('schoolYear', value)} 
+                  />
+                </div>
               </div>
-              <div className="mb-2 font-bold">
-                <EditableField 
-                  value={student.registrationNumber} 
-                  onSave={(value) => updateStudentInfo('registrationNumber', value)} 
-                  isNumeric
-                />
+              
+              <div className="text-left font-semibold">
+                <div className="mb-2">:الإسم</div>
+                <div className="mb-2">:القسم</div>
+                <div className="mb-2">:رقم التسجيل</div>
+                <div className="mb-2">:الرقم التربوي</div>
+                <div className="mb-2">:السنة الدراسية</div>
               </div>
-              <div className="mb-2 font-bold">
-                <EditableField 
-                  value={student.rimNumber} 
-                  onSave={(value) => updateStudentInfo('rimNumber', value)} 
-                />
-              </div>
-              <div className="mb-2 font-bold">
-                <EditableField 
-                  value={student.schoolYear} 
-                  onSave={(value) => updateStudentInfo('schoolYear', value)} 
-                />
-              </div>
-            </div>
-            
-            <div className="text-left">
-              <div className="mb-2">:الإسم</div>
-              <div className="mb-2">:القسم</div>
-              <div className="mb-2">:رقم التسجيل</div>
-              <div className="mb-2">:الرقم التربوي</div>
-              <div className="mb-2">:السنة الدراسية</div>
             </div>
           </div>
         </div>
         
-        <div className="text-center mb-4 text-xl font-bold">
+        <div className="semester-title">
           {student.semester} - {student.semester === 'Premier Trimestre' ? 'الفصل الأول' : 'الفصل الثاني'}
         </div>
         
-        <div className="text-center mb-6 text-2xl font-bold header-title">
+        <div className="text-center header-title">
           كشف الدرجات
         </div>
         
-        <div className="overflow-x-auto">
-          <table className="student-table text-sm">
+        <div className="overflow-x-auto px-4">
+          <table className="student-table">
             <thead>
               <tr>
                 <th className="w-1/6">المجموع<br/>Totale</th>
@@ -243,14 +243,14 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
           </table>
         </div>
         
-        <div className="mt-6 grid grid-cols-3 text-sm">
-          <div className="text-left">
-            <div className="font-bold mb-2">المعدل العام</div>
+        <div className="mt-8 grid grid-cols-3 text-lg px-8">
+          <div className="text-left font-bold">
+            <div className="mb-2">المعدل العام</div>
             <div className="font-bold">التقدير</div>
           </div>
 
-          <div className="text-center">
-            <div className="font-bold mb-2">
+          <div className="text-center font-bold">
+            <div className="mb-2">
               <EditableField 
                 value={student.overallAverage} 
                 onSave={(value) => updateStudentInfo('overallAverage', value)} 
@@ -265,8 +265,8 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
             </div>
           </div>
           
-          <div className="text-right">
-            <div className="font-bold mb-2">Moyenne generale</div>
+          <div className="text-right font-bold">
+            <div className="mb-2">Moyenne generale</div>
             <div className="font-bold">Mention</div>
           </div>
         </div>
