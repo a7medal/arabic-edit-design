@@ -13,6 +13,10 @@
   .student-card {
     border: none !important;
     box-shadow: none !important;
+    width: 21cm !important;
+    height: 29.7cm !important;
+    margin: 0 auto !important;
+    padding: 1cm !important;
   }
   
   .editable:hover {
@@ -26,6 +30,6 @@
   
   @page {
     size: A4;
-    margin: 1cm;
+    margin: 0;
   }
 }

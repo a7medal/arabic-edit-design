@@ -20,8 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'amiri': ['Amiri', 'serif'],
-				'tajawal': ['Tajawal', 'sans-serif'],
+				'cairo': ['Cairo', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

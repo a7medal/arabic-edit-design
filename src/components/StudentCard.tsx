@@ -107,12 +107,13 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <div className="bg-[url('/lovable-uploads/e05d7803-460a-47b2-9dc5-82980d79c000.png')] bg-cover bg-center h-24 rounded-t-lg"></div>
-      
+    <div className="max-w-6xl mx-auto p-0">
       <div className="student-card bg-white">
+        {/* School Header with Logo */}
+        <div className="school-header bg-[url('/lovable-uploads/1624e385-2d3d-4b97-b84a-1ec333778562.png')]"></div>
+        
         {/* Student Information Header */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-gray-500">
@@ -185,7 +186,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         </div>
         
         <div className="overflow-x-auto">
-          <table className="student-table">
+          <table className="student-table text-sm">
             <thead>
               <tr>
                 <th className="w-1/6">المجموع<br/>Totale</th>
@@ -242,12 +243,12 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
           </table>
         </div>
         
-        <div className="mt-6 grid grid-cols-2">
-          <div className="text-right">
-            <div className="font-bold mb-2">Moyenne generale</div>
-            <div className="font-bold">Mention</div>
+        <div className="mt-6 grid grid-cols-3 text-sm">
+          <div className="text-left">
+            <div className="font-bold mb-2">المعدل العام</div>
+            <div className="font-bold">التقدير</div>
           </div>
-          
+
           <div className="text-center">
             <div className="font-bold mb-2">
               <EditableField 
@@ -264,9 +265,9 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
             </div>
           </div>
           
-          <div className="text-left">
-            <div className="font-bold mb-2">المعدل العام</div>
-            <div className="font-bold">التقدير</div>
+          <div className="text-right">
+            <div className="font-bold mb-2">Moyenne generale</div>
+            <div className="font-bold">Mention</div>
           </div>
         </div>
       </div>

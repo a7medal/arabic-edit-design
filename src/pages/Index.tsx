@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StudentInfo } from '@/types/student';
 import StudentCard from '@/components/StudentCard';
 import { toast } from '@/hooks/use-toast';
+import { Print, RefreshCw } from 'lucide-react';
 
 // بيانات طالب عينة تطابق الصورة
 const initialStudentData: StudentInfo = {
@@ -125,25 +126,25 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 font-tajawal">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gray-100 py-4 font-cairo">
+      <div className="container mx-auto px-2">
+        <div className="mx-auto" style={{ maxWidth: '21cm' }}>
           <div className="flex justify-between mb-4 print:hidden">
             <button
               onClick={handleReset}
-              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded flex items-center gap-2"
             >
-              إعادة ضبط البيانات
+              <RefreshCw size={18} /> إعادة ضبط البيانات
             </button>
             <button
               onClick={handlePrint}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center gap-2"
             >
-              طباعة البطاقة
+              <Print size={18} /> طباعة البطاقة
             </button>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md p-4">
+          <div className="bg-white rounded-lg shadow-md p-0">
             <StudentCard student={student} onUpdate={handleUpdateStudent} />
           </div>
           
