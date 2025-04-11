@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { StudentInfo } from '@/types/student';
 import StudentCard from '@/components/StudentCard';
 import { toast } from '@/hooks/use-toast';
-import { Print, RefreshCw } from 'lucide-react';
+import { Printer, RefreshCw } from 'lucide-react';
 
 // بيانات طالب عينة تطابق الصورة
 const initialStudentData: StudentInfo = {
@@ -140,7 +139,7 @@ const Index = () => {
               onClick={handlePrint}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center gap-2"
             >
-              <Print size={18} /> طباعة البطاقة
+              <Printer size={18} /> طباعة البطاقة
             </button>
           </div>
           
