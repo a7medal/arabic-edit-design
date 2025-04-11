@@ -107,23 +107,23 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="student-card bg-white">
-        {/* School Header with Logo */}
-        <div className="school-header bg-[url('/lovable-uploads/abc52853-1c3a-4478-aaf2-a2a70cecd693.png')]"></div>
-        
-        {/* Student Information */}
-        <div className="student-info">
-          <div className="grid grid-cols-3 gap-2">
-            <div className="flex items-center justify-center">
-              <div className="student-photo">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 text-gray-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
+    <div className="student-card bg-white">
+      {/* School Header with Logo */}
+      <div className="school-header bg-[url('/lovable-uploads/abc52853-1c3a-4478-aaf2-a2a70cecd693.png')]"></div>
+      
+      {/* Student Information */}
+      <div className="student-info">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="flex items-center justify-center">
+            <div className="student-photo">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 text-gray-500">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
             </div>
-            
-            <div className="grid grid-cols-2 col-span-2 gap-2">
+          </div>
+          
+          <div className="flex flex-col col-span-2">
+            <div className="grid grid-cols-3 gap-2">
               <div className="text-right font-semibold">
                 <div className="mb-2">Nom:</div>
                 <div className="mb-2">Classe:</div>
@@ -133,32 +133,32 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
               </div>
               
               <div>
-                <div className="mb-2 font-bold">
+                <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.name} 
                     onSave={(value) => updateStudentInfo('name', value)} 
                   />
                 </div>
-                <div className="mb-2 font-bold">
+                <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.className} 
                     onSave={(value) => updateStudentInfo('className', value)} 
                   />
                 </div>
-                <div className="mb-2 font-bold">
+                <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.registrationNumber} 
                     onSave={(value) => updateStudentInfo('registrationNumber', value)} 
                     isNumeric
                   />
                 </div>
-                <div className="mb-2 font-bold">
+                <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.rimNumber} 
                     onSave={(value) => updateStudentInfo('rimNumber', value)} 
                   />
                 </div>
-                <div className="mb-2 font-bold">
+                <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.schoolYear} 
                     onSave={(value) => updateStudentInfo('schoolYear', value)} 
@@ -166,7 +166,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 </div>
               </div>
               
-              <div className="text-left font-semibold">
+              <div className="text-right font-semibold">
                 <div className="mb-2">:الإسم</div>
                 <div className="mb-2">:القسم</div>
                 <div className="mb-2">:رقم التسجيل</div>
@@ -176,99 +176,99 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
             </div>
           </div>
         </div>
-        
-        <div className="semester-title">
-          {student.semester} - {student.semester === 'Premier Trimestre' ? 'الفصل الأول' : 'الفصل الثاني'}
-        </div>
-        
-        <div className="text-center header-title">
-          كشف الدرجات
-        </div>
-        
-        <div className="overflow-x-auto px-4">
-          <table className="student-table">
-            <thead>
-              <tr>
-                <th className="w-1/6">المجموع<br/>Totale</th>
-                <th className="w-1/12">الضارب<br/>Coieficien</th>
-                <th className="w-1/12">المعدل<br/>Moyenne</th>
-                <th className="w-1/6">نتائج الامتحان<br/>Note de Compo</th>
-                <th className="w-1/6">نتائج الاختبارات<br/>Note de Devoire</th>
-                <th className="w-1/4">المادة<br/>Matiere</th>
+      </div>
+      
+      <div className="semester-title">
+        {student.semester} - {student.semester === 'Premier Trimestre' ? 'الفصل الأول' : 'الفصل الثاني'}
+      </div>
+      
+      <div className="text-center header-title mb-4">
+        كشف الدرجات
+      </div>
+      
+      <div className="overflow-x-auto px-2">
+        <table className="student-table">
+          <thead>
+            <tr>
+              <th className="w-1/6">المجموع<br/>Totale</th>
+              <th className="w-1/12">الضارب<br/>Coieficien</th>
+              <th className="w-1/12">المعدل<br/>Moyenne</th>
+              <th className="w-1/6">نتائج الامتحان<br/>Note de Compo</th>
+              <th className="w-1/6">نتائج الاختبارات<br/>Note de Devoire</th>
+              <th className="w-1/4">المادة<br/>Matiere</th>
+            </tr>
+          </thead>
+          <tbody>
+            {student.subjects.map((subject, index) => (
+              <tr key={index}>
+                <td>{calculateTotal(subject).toFixed(1)}</td>
+                <td>
+                  <EditableField 
+                    value={subject.coefficient} 
+                    onSave={(value) => updateSubject(index, 'coefficient', value)} 
+                    isNumeric
+                  />
+                </td>
+                <td>
+                  <EditableField 
+                    value={subject.average} 
+                    onSave={(value) => updateSubject(index, 'average', value)} 
+                    isNumeric
+                  />
+                </td>
+                <td>
+                  <EditableField 
+                    value={subject.examScore} 
+                    onSave={(value) => updateSubject(index, 'examScore', value)} 
+                    isNumeric
+                  />
+                </td>
+                <td>
+                  {subject.homeworkScore !== undefined ? (
+                    <EditableField 
+                      value={subject.homeworkScore} 
+                      onSave={(value) => updateSubject(index, 'homeworkScore', value)} 
+                      isNumeric
+                    />
+                  ) : "-"}
+                </td>
+                <td className="text-right">
+                  <div className="flex justify-between">
+                    <span>{subject.nameAr}</span>
+                    <span>{subject.name}</span>
+                  </div>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {student.subjects.map((subject, index) => (
-                <tr key={index}>
-                  <td>{calculateTotal(subject)}</td>
-                  <td>
-                    <EditableField 
-                      value={subject.coefficient} 
-                      onSave={(value) => updateSubject(index, 'coefficient', value)} 
-                      isNumeric
-                    />
-                  </td>
-                  <td>
-                    <EditableField 
-                      value={subject.average} 
-                      onSave={(value) => updateSubject(index, 'average', value)} 
-                      isNumeric
-                    />
-                  </td>
-                  <td>
-                    <EditableField 
-                      value={subject.examScore} 
-                      onSave={(value) => updateSubject(index, 'examScore', value)} 
-                      isNumeric
-                    />
-                  </td>
-                  <td>
-                    {subject.homeworkScore !== undefined ? (
-                      <EditableField 
-                        value={subject.homeworkScore} 
-                        onSave={(value) => updateSubject(index, 'homeworkScore', value)} 
-                        isNumeric
-                      />
-                    ) : ""}
-                  </td>
-                  <td className="text-right">
-                    <div className="flex justify-between">
-                      <span>{subject.name}</span>
-                      <span>{subject.nameAr}</span>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
+      <div className="mt-6 grid grid-cols-3 text-lg px-4">
+        <div className="text-left font-bold">
+          <div className="mb-2">المعدل العام</div>
+          <div className="font-bold">التقدير</div>
+        </div>
+
+        <div className="text-center font-bold">
+          <div className="mb-2">
+            <EditableField 
+              value={student.overallAverage} 
+              onSave={(value) => updateStudentInfo('overallAverage', value)} 
+              isNumeric
+            />
+          </div>
+          <div className="font-bold">
+            <EditableField 
+              value={student.mention} 
+              onSave={(value) => updateStudentInfo('mention', value)} 
+            />
+          </div>
         </div>
         
-        <div className="mt-8 grid grid-cols-3 text-lg px-8">
-          <div className="text-left font-bold">
-            <div className="mb-2">المعدل العام</div>
-            <div className="font-bold">التقدير</div>
-          </div>
-
-          <div className="text-center font-bold">
-            <div className="mb-2">
-              <EditableField 
-                value={student.overallAverage} 
-                onSave={(value) => updateStudentInfo('overallAverage', value)} 
-                isNumeric
-              />
-            </div>
-            <div className="font-bold">
-              <EditableField 
-                value={student.mention} 
-                onSave={(value) => updateStudentInfo('mention', value)} 
-              />
-            </div>
-          </div>
-          
-          <div className="text-right font-bold">
-            <div className="mb-2">Moyenne generale</div>
-            <div className="font-bold">Mention</div>
-          </div>
+        <div className="text-right font-bold">
+          <div className="mb-2">Moyenne generale</div>
+          <div className="font-bold">Mention</div>
         </div>
       </div>
     </div>

@@ -18,15 +18,15 @@ const initialStudentData: StudentInfo = {
   subjects: [
     {
       name: "Francais",
-      nameAr: "اللغة العربية",
+      nameAr: "اللغة الفرنسية",
       coefficient: 2,
       average: 15,
       examScore: 15,
       homeworkScore: 14
     },
     {
-      name: "Francais",
-      nameAr: "Francais",
+      name: "Arabe",
+      nameAr: "اللغة العربية",
       coefficient: 2,
       average: 14,
       examScore: 14,
@@ -42,7 +42,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Science Naturelles",
-      nameAr: "Science Naturelles",
+      nameAr: "العلوم الطبيعية",
       coefficient: 3,
       average: 10.5,
       examScore: 10.5,
@@ -57,7 +57,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Physique et Chimie",
-      nameAr: "Physique et Chimie",
+      nameAr: "الفيزياء والكيمياء",
       coefficient: 6,
       average: 12,
       examScore: 12,
@@ -65,7 +65,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Mathematique",
-      nameAr: "Mathematique",
+      nameAr: "الرياضيات",
       coefficient: 7,
       average: 10.5,
       examScore: 10.5,
