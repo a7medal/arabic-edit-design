@@ -85,35 +85,37 @@
   }
   
   .student-card {
-    @apply border border-gray-200 rounded-lg shadow-sm;
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
     width: 21cm;
     height: 29.7cm;
     margin: 0 auto;
     position: relative;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   
   .student-header {
     @apply border-b;
-    padding: 1rem;
-  }
-  
-  .student-info {
-    @apply border border-gray-300 rounded-lg;
-    margin: 0.5rem 1rem;
     padding: 0.5rem;
   }
   
+  .student-info {
+    @apply border border-gray-300;
+    margin: 0.25rem 0.5rem;
+    padding: 0.25rem;
+  }
+  
   .student-photo {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     @apply rounded-full bg-gray-200 flex items-center justify-center;
   }
   
   .student-table {
     @apply w-full border-collapse;
-    margin: 0 0.5rem;
+    direction: ltr;
   }
   
   .student-table th, .student-table td {
@@ -127,7 +129,7 @@
   
   .school-header {
     width: 100%;
-    height: 80px;
+    height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -136,6 +138,6 @@
   }
   
   .semester-title {
-    @apply text-center text-lg font-bold my-2;
+    @apply text-center text-lg font-bold my-1;
   }
 }

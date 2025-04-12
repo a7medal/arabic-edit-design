@@ -44,6 +44,7 @@
     width: 100% !important;
     margin: 0 0.5rem !important;
     font-size: 10pt !important;
+    direction: ltr !important;
   }
   
   .student-table th, .student-table td {

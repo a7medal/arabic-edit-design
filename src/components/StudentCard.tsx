@@ -107,14 +107,14 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
   };
 
   return (
-    <div className="student-card bg-white">
+    <div className="student-card">
       {/* School Header with Logo */}
       <div className="school-header bg-[url('/lovable-uploads/abc52853-1c3a-4478-aaf2-a2a70cecd693.png')]"></div>
       
       {/* Student Information */}
       <div className="student-info">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="flex items-center justify-center">
+        <div className="grid grid-cols-7">
+          <div className="col-span-2 flex items-center justify-center">
             <div className="student-photo">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 text-gray-500">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -122,7 +122,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
             </div>
           </div>
           
-          <div className="flex flex-col col-span-2">
+          <div className="flex flex-col col-span-5">
             <div className="grid grid-cols-3 gap-2">
               <div className="text-right font-semibold">
                 <div className="mb-2">Nom:</div>
@@ -132,7 +132,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 <div className="mb-2">Annee Scolaire:</div>
               </div>
               
-              <div>
+              <div className="col-span-1">
                 <div className="mb-2 font-bold text-center">
                   <EditableField 
                     value={student.name} 
@@ -182,20 +182,20 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         {student.semester} - {student.semester === 'Premier Trimestre' ? 'الفصل الأول' : 'الفصل الثاني'}
       </div>
       
-      <div className="text-center header-title mb-4">
+      <div className="text-center header-title">
         كشف الدرجات
       </div>
       
-      <div className="overflow-x-auto px-2">
+      <div className="px-2">
         <table className="student-table">
           <thead>
             <tr>
-              <th className="w-1/6">المجموع<br/>Totale</th>
-              <th className="w-1/12">الضارب<br/>Coieficien</th>
-              <th className="w-1/12">المعدل<br/>Moyenne</th>
-              <th className="w-1/6">نتائج الامتحان<br/>Note de Compo</th>
-              <th className="w-1/6">نتائج الاختبارات<br/>Note de Devoire</th>
-              <th className="w-1/4">المادة<br/>Matiere</th>
+              <th>المجموع<br/>Totale</th>
+              <th>الضارب<br/>Coieficien</th>
+              <th>المعدل<br/>Moyenne</th>
+              <th>نتائج الامتحان<br/>Note de Compo</th>
+              <th>نتائج الاختبارات<br/>Note de Devoire</th>
+              <th>المادة<br/>Matiere</th>
             </tr>
           </thead>
           <tbody>
@@ -233,9 +233,9 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                   ) : "-"}
                 </td>
                 <td className="text-right">
-                  <div className="flex justify-between">
-                    <span>{subject.nameAr}</span>
+                  <div className="flex justify-between px-2">
                     <span>{subject.name}</span>
+                    <span>{subject.nameAr}</span>
                   </div>
                 </td>
               </tr>
@@ -244,10 +244,10 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         </table>
       </div>
       
-      <div className="mt-6 grid grid-cols-3 text-lg px-4">
+      <div className="mt-4 grid grid-cols-3 text-lg px-4">
         <div className="text-left font-bold">
-          <div className="mb-2">المعدل العام</div>
-          <div className="font-bold">التقدير</div>
+          <div className="mb-2">المعدل العام:</div>
+          <div className="font-bold">التقدير:</div>
         </div>
 
         <div className="text-center font-bold">
@@ -267,8 +267,8 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         </div>
         
         <div className="text-right font-bold">
-          <div className="mb-2">Moyenne generale</div>
-          <div className="font-bold">Mention</div>
+          <div className="mb-2">Moyenne generale:</div>
+          <div className="font-bold">Mention:</div>
         </div>
       </div>
     </div>

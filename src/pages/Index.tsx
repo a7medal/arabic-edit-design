@@ -127,8 +127,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-4 font-cairo">
-      <div className="container mx-auto px-2">
-        <div className="mx-auto" style={{ maxWidth: '21cm' }}>
+      <div className="container mx-auto p-0">
+        <div className="mx-auto p-0" style={{ maxWidth: '21cm' }}>
           <div className="flex justify-between mb-4 print:hidden">
             <button
               onClick={handleReset}
@@ -144,7 +144,7 @@ const Index = () => {
             </button>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md p-0">
+          <div className="p-0">
             <StudentCard student={student} onUpdate={handleUpdateStudent} />
           </div>
           
