@@ -3,6 +3,7 @@
   @page {
     size: A4 portrait;
     margin: 0;
+    padding: 0;
   }
   
   body {
@@ -28,7 +29,9 @@
   }
   
   .student-info {
-    border: 1px solid #e5e7eb !important;
+    border: 1px solid #000 !important;
+    border-radius: 0.5rem !important;
+    margin: 1rem !important;
   }
   
   .editable:hover {
@@ -42,12 +45,18 @@
   
   .student-table {
     width: 100% !important;
-    margin: 0 0.5rem !important;
-    font-size: 10pt !important;
-    direction: ltr !important;
+    margin: 0 auto !important;
+    font-size: 12pt !important;
+    direction: rtl !important;
   }
   
   .student-table th, .student-table td {
-    padding: 3px !important;
+    padding: 6px !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .average-section {
+    margin-top: 1rem !important;
+    font-size: 14pt !important;
   }
 }

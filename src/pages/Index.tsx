@@ -5,7 +5,7 @@ import StudentCard from '@/components/StudentCard';
 import { toast } from '@/hooks/use-toast';
 import { Printer, RefreshCw } from 'lucide-react';
 
-// بيانات طالب عينة تطابق الصورة
+// بيانات طالب عينة تطابق الصورة المرفقة
 const initialStudentData: StudentInfo = {
   id: "1",
   name: "Elhaj Ebou Imaaly Ammy - الحاج أبو المعالي عمي",
@@ -18,7 +18,7 @@ const initialStudentData: StudentInfo = {
   subjects: [
     {
       name: "Francais",
-      nameAr: "اللغة الفرنسية",
+      nameAr: "اللغة العربية",
       coefficient: 2,
       average: 15,
       examScore: 15,
@@ -26,7 +26,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Arabe",
-      nameAr: "اللغة العربية",
+      nameAr: "Francais",
       coefficient: 2,
       average: 14,
       examScore: 14,
@@ -42,10 +42,10 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Science Naturelles",
-      nameAr: "العلوم الطبيعية",
+      nameAr: "Science Naturelles",
       coefficient: 3,
       average: 10.5,
-      examScore: 10.5,
+      examScore: 10.5
     },
     {
       name: "Education Islamique",
@@ -57,7 +57,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Physique et Chimie",
-      nameAr: "الفيزياء والكيمياء",
+      nameAr: "Physique et Chimie",
       coefficient: 6,
       average: 12,
       examScore: 12,
@@ -65,7 +65,7 @@ const initialStudentData: StudentInfo = {
     },
     {
       name: "Mathematique",
-      nameAr: "الرياضيات",
+      nameAr: "Mathematique",
       coefficient: 7,
       average: 10.5,
       examScore: 10.5,
@@ -92,7 +92,7 @@ const initialStudentData: StudentInfo = {
       nameAr: "التربية البدنية",
       coefficient: 2,
       average: 16,
-      examScore: 16,
+      examScore: 16
     }
   ],
   overallAverage: 12.4,
