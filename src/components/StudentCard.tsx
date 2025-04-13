@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { StudentInfo, Subject } from '@/types/student';
+import { Check } from 'lucide-react';
 import { Avatar, AvatarFallback } from "./ui/avatar";
-import { User } from "lucide-react";
 
 interface EditableFieldProps {
   value: string | number;
@@ -48,6 +48,9 @@ const EditableField: React.FC<EditableFieldProps> = ({
         autoFocus
         step={isNumeric ? "0.5" : undefined}
       />
+      <button onClick={handleSave} className="ml-1 text-green-600">
+        <Check size={16} />
+      </button>
     </div>
   ) : (
     <div 
@@ -107,16 +110,8 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
       
       {/* Student Information */}
       <div className="student-info">
-        <div className="student-info-grid">
-          <div className="student-photo">
-            <Avatar className="w-full h-full bg-gray-300">
-              <AvatarFallback className="text-gray-400 w-full h-full flex items-center justify-center">
-                <User size={80} />
-              </AvatarFallback>
-            </Avatar>
-          </div>
-          
-          <div className="flex flex-col w-full justify-between space-y-2">
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-3">
             <div className="student-info-row">
               <div className="student-info-label-left">Nom:</div>
               <div className="student-info-value">
@@ -142,7 +137,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
             </div>
             
             <div className="student-info-row">
-              <div className="student-info-label-left">Matricule</div>
+              <div className="student-info-label-left">Matricule:</div>
               <div className="student-info-value">
                 <EditableField 
                   value={student.registrationNumber} 
@@ -176,6 +171,18 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 />
               </div>
               <div className="student-info-label-right">:السنة الدراسية</div>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-center">
+            <div className="student-photo">
+              <Avatar className="w-24 h-24 bg-gray-200">
+                <AvatarFallback className="text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </AvatarFallback>
+              </Avatar>
             </div>
           </div>
         </div>

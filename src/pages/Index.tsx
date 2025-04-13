@@ -14,7 +14,7 @@ const initialStudentData: StudentInfo = {
   registrationNumber: 4,
   rimNumber: "RIM25454658",
   schoolYear: "2025 - 2024",
-  semester: "Premier Trimestre - الفصل الأول",
+  semester: "Premier Trimestre",
   subjects: [
     {
       name: "اللغة العربية",
@@ -109,6 +109,7 @@ const Index = () => {
 
   const handlePrint = () => {
     window.print();
+    // Removed toast notification as per user request
   };
 
   const handleReset = () => {
