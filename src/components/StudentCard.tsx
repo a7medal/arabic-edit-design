@@ -110,19 +110,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
       
       {/* Student Information */}
       <div className="student-info">
-        <div className="grid grid-cols-4 gap-2">
-          <div className="flex items-center justify-center">
-            <div className="student-photo">
-              <Avatar className="w-24 h-24 bg-gray-200">
-                <AvatarFallback className="text-gray-400">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-          
+        <div className="grid grid-cols-4 gap-4">
           <div className="col-span-3">
             <div className="student-info-row">
               <div className="student-info-label-left">Nom:</div>
@@ -185,6 +173,18 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
               <div className="student-info-label-right">:السنة الدراسية</div>
             </div>
           </div>
+          
+          <div className="flex items-center justify-center">
+            <div className="student-photo">
+              <Avatar className="w-24 h-24 bg-gray-200">
+                <AvatarFallback className="text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -205,33 +205,49 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
           <thead>
             <tr>
               <th>
-                المجموع<br/>Total
-              </th>
-              <th>
-                المعامل<br/>Coef
-              </th>
-              <th>
-                المعدل<br/>Moyenne
-              </th>
-              <th>
-                نتائج الامتحان<br/>Note Compo
+                المادة<br/>Matiere
               </th>
               <th>
                 نتائج الاختبارات<br/>Note Devoir
               </th>
               <th>
-                المادة<br/>Matiere
+                نتائج الامتحان<br/>Note Compo
+              </th>
+              <th>
+                المعدل<br/>Moyenne
+              </th>
+              <th>
+                المعامل<br/>Coef
+              </th>
+              <th>
+                المجموع<br/>Total
               </th>
             </tr>
           </thead>
           <tbody>
             {student.subjects.map((subject, index) => (
               <tr key={index}>
-                <td>{calculateTotal(subject).toFixed(subject.average % 1 === 0 ? 0 : 1)}</td>
+                <td className="text-right">
+                  <EditableField 
+                    value={subject.nameAr} 
+                    onSave={(value) => updateSubject(index, 'nameAr', value)} 
+                    hideIcons={true}
+                  />
+                </td>
+                <td>
+                  {subject.homeworkScore !== undefined ? (
+                    <EditableField 
+                      value={subject.homeworkScore} 
+                      onSave={(value) => updateSubject(index, 'homeworkScore', value)} 
+                      isNumeric
+                      hideIcons={true}
+                    />
+                  ) : "-"}
+                </td>
                 <td>
                   <EditableField 
-                    value={subject.coefficient} 
-                    onSave={(value) => updateSubject(index, 'coefficient', value)} 
+                    value={subject.examScore} 
+                    onSave={(value) => updateSubject(index, 'examScore', value)} 
                     isNumeric
                     hideIcons={true}
                   />
@@ -246,29 +262,13 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 </td>
                 <td>
                   <EditableField 
-                    value={subject.examScore} 
-                    onSave={(value) => updateSubject(index, 'examScore', value)} 
+                    value={subject.coefficient} 
+                    onSave={(value) => updateSubject(index, 'coefficient', value)} 
                     isNumeric
                     hideIcons={true}
                   />
                 </td>
-                <td>
-                  {subject.homeworkScore !== undefined ? (
-                    <EditableField 
-                      value={subject.homeworkScore} 
-                      onSave={(value) => updateSubject(index, 'homeworkScore', value)} 
-                      isNumeric
-                      hideIcons={true}
-                    />
-                  ) : "-"}
-                </td>
-                <td className="text-right">
-                  <EditableField 
-                    value={subject.nameAr} 
-                    onSave={(value) => updateSubject(index, 'nameAr', value)} 
-                    hideIcons={true}
-                  />
-                </td>
+                <td>{calculateTotal(subject).toFixed(subject.average % 1 === 0 ? 0 : 1)}</td>
               </tr>
             ))}
           </tbody>
