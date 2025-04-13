@@ -17,7 +17,7 @@ const initialStudentData: StudentInfo = {
   semester: "Premier Trimestre",
   subjects: [
     {
-      name: "Francais",
+      name: "اللغة العربية",
       nameAr: "اللغة العربية",
       coefficient: 2,
       average: 15,
@@ -25,7 +25,7 @@ const initialStudentData: StudentInfo = {
       homeworkScore: 14
     },
     {
-      name: "Arabe",
+      name: "Francais",
       nameAr: "Francais",
       coefficient: 2,
       average: 14,
@@ -33,7 +33,7 @@ const initialStudentData: StudentInfo = {
       homeworkScore: 14
     },
     {
-      name: "Anglais",
+      name: "الإنجليزية",
       nameAr: "الإنجليزية",
       coefficient: 2,
       average: 15,
@@ -48,7 +48,7 @@ const initialStudentData: StudentInfo = {
       examScore: 10.5
     },
     {
-      name: "Education Islamique",
+      name: "التربية الإسلامية",
       nameAr: "التربية الإسلامية",
       coefficient: 2,
       average: 16,
@@ -72,7 +72,7 @@ const initialStudentData: StudentInfo = {
       homeworkScore: 10
     },
     {
-      name: "Histoire et Geographie",
+      name: "التاريخ والجغرافيا",
       nameAr: "التاريخ والجغرافيا",
       coefficient: 2,
       average: 15,
@@ -80,7 +80,7 @@ const initialStudentData: StudentInfo = {
       homeworkScore: 15
     },
     {
-      name: "Philosophie",
+      name: "الفلسفة",
       nameAr: "الفلسفة",
       coefficient: 2,
       average: 10,
@@ -88,7 +88,7 @@ const initialStudentData: StudentInfo = {
       homeworkScore: 10
     },
     {
-      name: "Education Physique",
+      name: "التربية البدنية",
       nameAr: "التربية البدنية",
       coefficient: 2,
       average: 16,

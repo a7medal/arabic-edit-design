@@ -100,23 +100,25 @@
   }
   
   .student-photo {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     @apply rounded-full bg-gray-200 flex items-center justify-center;
+    margin: 0 auto;
   }
   
   .student-table {
-    @apply w-full border-collapse;
+    @apply w-full;
     direction: rtl;
+    border-collapse: collapse;
   }
   
   .student-table th, .student-table td {
     @apply border border-gray-800 p-2 text-center;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .student-table th {
-    @apply bg-gray-50 font-bold;
+    @apply bg-white font-bold;
   }
   
   .school-header {
@@ -125,7 +127,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
   
   .semester-title {
@@ -133,10 +135,46 @@
   }
   
   .grade-report-title {
-    @apply text-center text-xl font-bold my-2;
+    @apply text-center text-2xl font-bold my-4;
   }
   
   .average-section {
-    @apply grid grid-cols-3 gap-4 px-8 my-4;
+    @apply grid grid-cols-3 gap-4 px-8 my-6;
+  }
+  
+  .student-info-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .student-info-label-left {
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+
+  .student-info-label-right {
+    text-align: right;
+    padding-right: 0.5rem;
+  }
+
+  .student-info-value {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .mention-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .moyenne-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin-bottom: 1rem;
   }
 }
