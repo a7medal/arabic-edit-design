@@ -109,10 +109,7 @@ const Index = () => {
 
   const handlePrint = () => {
     window.print();
-    toast({
-      title: "تمت الطباعة",
-      description: "تم إرسال المستند إلى الطابعة",
-    });
+    // Removed toast notification as per user request
   };
 
   const handleReset = () => {

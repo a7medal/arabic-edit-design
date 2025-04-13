@@ -1,17 +1,24 @@
 
 import React, { useState } from 'react';
 import { StudentInfo, Subject } from '@/types/student';
-import { Edit2, Check } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
+import { Check } from 'lucide-react';
 import { Avatar, AvatarFallback } from "./ui/avatar";
 
 interface EditableFieldProps {
   value: string | number;
   onSave: (value: string | number) => void;
   isNumeric?: boolean;
+  className?: string;
+  hideIcons?: boolean;
 }
 
-const EditableField: React.FC<EditableFieldProps> = ({ value, onSave, isNumeric = false }) => {
+const EditableField: React.FC<EditableFieldProps> = ({ 
+  value, 
+  onSave, 
+  isNumeric = false, 
+  className = "",
+  hideIcons = false
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentValue, setCurrentValue] = useState(value);
 
@@ -47,11 +54,11 @@ const EditableField: React.FC<EditableFieldProps> = ({ value, onSave, isNumeric 
     </div>
   ) : (
     <div 
-      className="editable flex items-center justify-center gap-1" 
+      className={`editable flex items-center justify-center ${className}`} 
       onClick={() => setIsEditing(true)}
     >
       <span>{value}</span>
-      <Edit2 size={14} className="opacity-50" />
+      {!hideIcons && <span className="opacity-50 ml-1 edit-icons">✎</span>}
     </div>
   );
 };
@@ -62,15 +69,9 @@ interface StudentCardProps {
 }
 
 const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
-  const { toast } = useToast();
-
   const updateStudentInfo = (field: string, value: string | number) => {
     const updatedStudent = { ...student, [field]: value };
     onUpdate(updatedStudent);
-    toast({
-      title: "تم التحديث",
-      description: `تم تحديث ${field} بنجاح`,
-    });
   };
 
   const updateSubject = (index: number, field: string, value: string | number) => {
@@ -95,11 +96,6 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
     };
     
     onUpdate(updatedStudent);
-    
-    toast({
-      title: "تم التحديث",
-      description: "تم تحديث المادة بنجاح",
-    });
   };
 
   // Calculate the total for each subject
@@ -134,6 +130,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 <EditableField 
                   value={student.name} 
                   onSave={(value) => updateStudentInfo('name', value)} 
+                  hideIcons={true}
                 />
               </div>
               <div className="student-info-label-right">:الإسم</div>
@@ -145,6 +142,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 <EditableField 
                   value={student.className} 
                   onSave={(value) => updateStudentInfo('className', value)} 
+                  hideIcons={true}
                 />
               </div>
               <div className="student-info-label-right">:القسم</div>
@@ -157,6 +155,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                   value={student.registrationNumber} 
                   onSave={(value) => updateStudentInfo('registrationNumber', value)} 
                   isNumeric
+                  hideIcons={true}
                 />
               </div>
               <div className="student-info-label-right">:رقم التسجيل</div>
@@ -168,6 +167,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 <EditableField 
                   value={student.rimNumber} 
                   onSave={(value) => updateStudentInfo('rimNumber', value)} 
+                  hideIcons={true}
                 />
               </div>
               <div className="student-info-label-right">:الرقم التربوي</div>
@@ -179,6 +179,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                 <EditableField 
                   value={student.schoolYear} 
                   onSave={(value) => updateStudentInfo('schoolYear', value)} 
+                  hideIcons={true}
                 />
               </div>
               <div className="student-info-label-right">:السنة الدراسية</div>
@@ -188,33 +189,37 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
       </div>
       
       <div className="semester-title">
-        {student.semester} - {student.semester === 'Premier Trimestre' ? 'الفصل الأول' : 'الفصل الثاني'}
+        <EditableField 
+          value={student.semester} 
+          onSave={(value) => updateStudentInfo('semester', value)} 
+          hideIcons={true}
+        />
       </div>
       
       <div className="grade-report-title">
         كشف الدرجات
       </div>
       
-      <div className="px-8">
+      <div className="px-4">
         <table className="student-table">
           <thead>
             <tr>
-              <th className="min-w-20">
-                المجموع<br/>Totale
+              <th>
+                المجموع<br/>Total
               </th>
-              <th className="w-24">
-                الضارب<br/>Coieficien
+              <th>
+                المعامل<br/>Coef
               </th>
-              <th className="w-24">
+              <th>
                 المعدل<br/>Moyenne
               </th>
-              <th className="w-36">
-                نتائج الامتحان<br/>Note de Compo
+              <th>
+                نتائج الامتحان<br/>Note Compo
               </th>
-              <th className="w-36">
-                نتائج الاختبارات<br/>Note de Devoire
+              <th>
+                نتائج الاختبارات<br/>Note Devoir
               </th>
-              <th className="w-44">
+              <th>
                 المادة<br/>Matiere
               </th>
             </tr>
@@ -228,6 +233,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                     value={subject.coefficient} 
                     onSave={(value) => updateSubject(index, 'coefficient', value)} 
                     isNumeric
+                    hideIcons={true}
                   />
                 </td>
                 <td>
@@ -235,6 +241,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                     value={subject.average} 
                     onSave={(value) => updateSubject(index, 'average', value)} 
                     isNumeric
+                    hideIcons={true}
                   />
                 </td>
                 <td>
@@ -242,6 +249,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                     value={subject.examScore} 
                     onSave={(value) => updateSubject(index, 'examScore', value)} 
                     isNumeric
+                    hideIcons={true}
                   />
                 </td>
                 <td>
@@ -250,6 +258,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                       value={subject.homeworkScore} 
                       onSave={(value) => updateSubject(index, 'homeworkScore', value)} 
                       isNumeric
+                      hideIcons={true}
                     />
                   ) : "-"}
                 </td>
@@ -257,6 +266,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
                   <EditableField 
                     value={subject.nameAr} 
                     onSave={(value) => updateSubject(index, 'nameAr', value)} 
+                    hideIcons={true}
                   />
                 </td>
               </tr>
@@ -265,28 +275,30 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onUpdate }) => {
         </table>
       </div>
       
-      <div className="px-8 mt-6">
-        <div className="moyenne-row">
-          <div className="text-left font-normal">Moyenne generale</div>
-          <div className="font-bold text-center">
+      <div className="footer-section">
+        <div className="footer-row">
+          <div className="footer-label-left">Moyenne generale</div>
+          <div className="footer-value">
             <EditableField 
               value={student.overallAverage} 
               onSave={(value) => updateStudentInfo('overallAverage', value)} 
               isNumeric
+              hideIcons={true}
             />
           </div>
-          <div className="text-right font-normal">المعدل العام</div>
+          <div className="footer-label-right">المعدل العام</div>
         </div>
         
-        <div className="mention-row">
-          <div className="text-left font-normal">Mention</div>
-          <div className="font-bold text-center">
+        <div className="footer-row">
+          <div className="footer-label-left">Mention</div>
+          <div className="footer-value">
             <EditableField 
               value={student.mention} 
               onSave={(value) => updateStudentInfo('mention', value)} 
+              hideIcons={true}
             />
           </div>
-          <div className="text-right font-normal">التقدير</div>
+          <div className="footer-label-right">التقدير</div>
         </div>
       </div>
     </div>
