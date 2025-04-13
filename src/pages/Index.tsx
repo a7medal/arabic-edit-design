@@ -8,95 +8,97 @@ import { Printer, RefreshCw } from 'lucide-react';
 // بيانات طالب عينة تطابق الصورة المرفقة
 const initialStudentData: StudentInfo = {
   id: "1",
-  name: "Elhaj Ebou Imaaly Ammy - الحاج أبو المعالي عمي",
-  arabicName: "الحاج أبو المعالي عمي",
+  name: "nom - الإسم",
+  arabicName: "الإسم",
   className: "6MA",
-  registrationNumber: 4,
-  rimNumber: "RIM25454658",
+  registrationNumber: رقمك,
+  rimNumber: "رقم RIM",
   schoolYear: "2025 - 2024",
-  semester: "Premier Trimestre",
+  semester: "Deuxième Trimestre",
   subjects: [
     {
       name: "اللغة العربية",
       nameAr: "اللغة العربية",
       coefficient: 2,
-      average: 15,
-      examScore: 15,
-      homeworkScore: 14
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "Francais",
       nameAr: "Francais",
-      coefficient: 2,
-      average: 14,
-      examScore: 14,
-      homeworkScore: 14
+      coefficient: 0,
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "الإنجليزية",
       nameAr: "الإنجليزية",
       coefficient: 2,
-      average: 15,
-      examScore: 15,
-      homeworkScore: 14
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "Science Naturelles",
       nameAr: "Science Naturelles",
       coefficient: 3,
-      average: 10.5,
-      examScore: 10.5
+      average: 0,
+      examScore: 0
+      homeworkScore: 0
     },
     {
       name: "التربية الإسلامية",
       nameAr: "التربية الإسلامية",
       coefficient: 2,
-      average: 16,
-      examScore: 16,
-      homeworkScore: 15
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "Physique et Chimie",
       nameAr: "Physique et Chimie",
       coefficient: 6,
-      average: 12,
-      examScore: 12,
-      homeworkScore: 8
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "Mathematique",
       nameAr: "Mathematique",
       coefficient: 7,
-      average: 10.5,
-      examScore: 10.5,
-      homeworkScore: 10
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "التاريخ والجغرافيا",
       nameAr: "التاريخ والجغرافيا",
       coefficient: 2,
-      average: 15,
-      examScore: 15,
-      homeworkScore: 15
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "الفلسفة",
       nameAr: "الفلسفة",
       coefficient: 2,
-      average: 10,
-      examScore: 10,
-      homeworkScore: 10
+      average: 0,
+      examScore: 0,
+      homeworkScore: 0
     },
     {
       name: "التربية البدنية",
       nameAr: "التربية البدنية",
       coefficient: 2,
-      average: 16,
-      examScore: 16
+      average: 0,
+      examScore: 0
+      homeworkScore: 0
     }
   ],
-  overallAverage: 12.4,
-  mention: "Plaque d'honneur - لوحة شرف"
+  overallAverage: 0.0,
+  mention: "اكتب هنا التقدير المناسب "
 };
 
 const Index = () => {
@@ -137,7 +139,7 @@ const Index = () => {
               onClick={handlePrint}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center gap-2"
             >
-              <Printer size={18} /> طباعة البطاقة
+              <Printer size={18} /> طباعة النتيجة
             </button>
           </div>
           
